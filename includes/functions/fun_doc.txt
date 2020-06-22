@@ -1,0 +1,36 @@
+==============================================
+========== Function Document =================
+==============================================
+
+getAllFrom($field , $table, $where = NULL, $and = NULL, $orderField, $ordering = "DESC" , $limit = NULL)
+
+
+function getAllFrom($field , $table, $join = NULL,  $on = NULL, $where = NULL, $and = NULL, $orderField, $ordering = "DESC" , $limit = NULL)
+{
+
+    global $connection;
+    $getAll = $connection ->prepare("SELECT $field FROM $table $join  $on  $where  $and  ORDER BY $orderField $ordering $limit ");
+    $getAll->execute();
+    $all = $getAll->fetchAll();
+    return $all;
+}
+
+
+/*
+** Check IF User Is Not Activated Function
+** version(2.0)
+*/
+function checkUserStatus($user)
+{
+    global $connection;
+    $stmt = $connection ->prepare("SELECT
+                                        Username,RegStatus
+                                    FROM
+                                        users
+                                    Where
+                                        Username =?
+                                ");
+    $stmt ->execute(array($user));
+    $status = $stmt ->fetch();
+    return $status['RegStatus'];
+}
