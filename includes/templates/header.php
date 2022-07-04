@@ -85,7 +85,12 @@
             <!-- Start Show Categories  -->
             <div class="collapse navbar-collapse" id="app-nav">
                 <ul class="navbar-nav mr-auto">
-                    <li class='nav-item'><a class='nav-link active-link' href='index.php'>HOME <span class='sr-only'>(current)</span></a></li>
+                    <li class='nav-item'>
+                        <a class='nav-link <?php echo (isset($selected) && $selected == 'home') ? 'active-link':'';?>' href='index.php'>
+                            HOME         
+                            <span class='sr-only'>(current)</span>
+                        </a>
+                    </li>
                     <?php 
                         $categories =getAllFrom('*' , 'categories','','', 'WHERE parent = 0 ', 'AND Visibility = 0', 'ID', 'ASC' , 'LIMIT 6');
                         foreach($categories as $category )
@@ -94,7 +99,9 @@
                             if(empty($childCats))
                             {
                                 echo "<li class='nav-item'>";
-                                    echo '<a class="nav-link" href="categories.php?catid='.$category["ID"].'">'.$category["Name"] .'<span class="sr-only">(current)</span></a>';
+                                    echo '<a class="nav-link';
+                                    echo (isset($selected) && $selected == $category["ID"]) ? ' active-link':'';
+                                    echo '"href="categories.php?catid='.$category["ID"].'">'.$category["Name"] .'<span class="sr-only">(current)</span></a>';
                                 echo "</li>";
                             }
                             else

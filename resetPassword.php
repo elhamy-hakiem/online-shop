@@ -118,7 +118,7 @@ else
                     <div class="card login-card mt-3">
                         <img src="layout/images/logo4.png" class="login-logo" alt="...">
                         <div class="card-body">
-                            <!-- Start Login Form  -->
+                            <!-- Start Reset Password Form  -->
                             <form class="login-form" action="" method="POST">
 
                                 <div class="form-group">
@@ -131,7 +131,7 @@ else
                     
                                 <button type="submit" name="changePass" class="btn btn-danger btn-login">Save</button>
                             </form>
-                            <!-- End Login Form  -->
+                            <!-- End Reset Password Form  -->
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@ else
             <div class="card login-card mt-3">
                 <img src="layout/images/logo4.png" class="login-logo" alt="...">
                 <div class="card-body">
-                    <!-- Start Login Form  -->
+                    <!-- Start Reset Password Form  -->
                     <form class="login-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         
                         <div class="form-group">
@@ -268,7 +268,7 @@ else
             
                         <button type="submit" name="resetPass" class="btn btn-danger btn-login">Send</button>
                     </form>
-                    <!-- End Login Form  -->
+                    <!-- End Reset Password Form  -->
                 </div>
             </div>
         </div>

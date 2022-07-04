@@ -1,7 +1,8 @@
 <?php 
     ob_start();
     session_start();
-     $pageTitle="onlineShop.com"; 
+    $pageTitle="onlineShop.com"; 
+    $selected = 'home';
     include "init.php";
 ?>  
 
@@ -51,7 +52,6 @@
                             <div class="slider-content text-white text-center">
                                 <h1 class="">Get Awesome.</h1>
                                 <p>New Fashion For You.</p>
-                                <a href="#" class="btn btn-color">Show More</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,6 @@
                             <div class="slider-content text-white text-center">
                                 <h1 class="">Greate Hand Made.</h1>
                                 <p>Shop Unique Hand Made Products.</p>
-                                <a href="#" class="btn btn-color">Show More</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +82,6 @@
                             <div class="slider-content text-white text-center">
                                 <h1 class="">Great Electronic Devices.</h1>
                                 <p>We help ambitious companies create new value.</p>
-                                <a href="#" class="btn btn-color">Show More</a>
                             </div>
                         </div>
                     </div>

@@ -39,19 +39,30 @@
                                                         echo "<img class='img-thumbnail' src= 'admin/uploads/products/".$item['Image']."' alt='Item Image'>";
                                                     }
                                                 ?>
+                                                <!-- Start Show Item  -->
                                                 <div class="card-body pt-2">
-                                                    <div class='item-rating float-left'>
-                                                        <span><i class="far fa-star"></i></span>
-                                                        <span><i class="far fa-star"></i></span>
-                                                        <span><i class="far fa-star"></i></span>
-                                                        <span><i class="far fa-star"></i></span>
-                                                        <span><i class="far fa-star"></i></span>
+                                                    <div <?php if(isset($_SESSION['user'])) { echo 'id="rating-list" data-itemid="'.$item["Item_ID"].'"';}?> class='item-rating float-left'>
+                                                        <?php
+                                                            $rate = getRate($item["Item_ID"]);
+                                                            for ($count =1 ; $count <=5 ; $count++)
+                                                            {
+                                                                if($count <= $rate )
+                                                                {
+                                                                    echo '<span class="rating-color" data-index="'.$count.'"><i class="far fa-star"></i></span>';
+                                                                }
+                                                                else
+                                                                {
+                                                                    echo '<span data-index="'.$count.'"><i class="far fa-star"></i></span>';
+                                                                }
+                                                            }
+                                                        ?>
                                                     </div>
                                                     <div class="item-date"><?php echo $item['Add_Date']; ?></div>
                                                     <h3 class="card-title my-1"><a href="items.php?itemid=<?php echo $item['Item_ID'];?>"><?php echo $item['Name']; ?></a></h3>
                                                     <p class="card-text"><?php echo $item['Description']; ?></p>
                                                     <span class='readMore-btn badge badge-danger'>Read More</span>
                                                 </div>
+                                                <!-- End Shoe Item  -->
                                         </div>
                                     </div>
 

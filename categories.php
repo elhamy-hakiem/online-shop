@@ -2,18 +2,19 @@
 
     ob_start();
     session_start();
-    $pageTitle="categories";  
+    $pageTitle="categories"; 
+    $selected = isset($_GET['catid']) && is_numeric($_GET['catid']) ? intval($_GET['catid']):''; 
     include "init.php";
 
 ?>
     
     <div class="container pt-2">
-        <?php if( isset($_GET['catid']) && is_numeric($_GET['catid']) ) { ?>
+        <?php if( isset($selected) ) { ?>
             <?php if(checkStatus('Visibility','categories', 'ID',$_GET['catid']) == 0){?>
                 <div class="page-header">
                     <h1 class="text-center">
                         <?php 
-                            $catid = intval($_GET['catid']);
+                            $catid = $selected;
                             $getCategory = $connection ->prepare("SELECT `Name` FROM categories WHERE ID = ?");
                             $getCategory ->execute(array($catid));
                             $category = $getCategory ->fetch();

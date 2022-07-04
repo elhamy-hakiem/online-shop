@@ -8,7 +8,7 @@ $(function(){
             $("body").css("overflow", "auto");
         });
 
-        // Start Get Rating
+          // Start Get Rating
         $('#rating-list span').click(function(e){
 
             if($(this).nextAll().hasClass('rating-color') )
@@ -23,18 +23,7 @@ $(function(){
             var index = $(this).data("index");
             var item_id = $(this).parent().data('itemid');
             e.preventDefault();
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You have rate "+index +" out of 5 !",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Rate it!'
-              }).then((result) => {
-                if (result.value) 
-                {
-                    $.ajax(
+            $.ajax(
                     {
                         url:"rating.php",
                         method:"POST",
@@ -50,9 +39,6 @@ $(function(){
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
-                                setTimeout(function(){
-                                    location.reload(true);
-                                    }, 1500);
                             }
                             else
                             {
@@ -64,8 +50,6 @@ $(function(){
                             }
                         }
                     });
-                }
-              });
             
         });
         // End Get Rating
